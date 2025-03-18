@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #div1, #div2, #div3{
+            background-color: black;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+        #filmeComedia, #filmeAcao, #filmeRomance{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
     <!-- <h2>LISTA 13</h2>
@@ -37,7 +51,7 @@
     <p id = "texto2">Aqui terá o segundo paragrafo </p>
     <p id = "texto3">Aqui terá o terceiro paragrafo </p> -->
 
-    <h2>LISTA 14</h2>
+    <!-- <h2>LISTA 14</h2>
 
     <h3>EXERCÍCIO 1</h3>
     <button id="botao1">Clique aqui</button>
@@ -77,8 +91,55 @@
             width: 200px;
             height: 200px;
         }
-    </style>
+    </style> -->
 
-    <script src="lista-14.js"></script>
+    <h2>LISTA 15</h2>
+    <h3>EXERCÍCIO 1</h3>
+    <p id="sumir">O texto vai sumir</p>
+    <button onclick="aparece()">Ocultar ou Mostrar Texto</button>
+
+    <h3>EXERCÍCIO 2</h3>
+    <p id="texto">Aqui terá um texto</p>
+    <button onclick="mudarCor()"> Mudar a cor</button>
+
+    <h3>EXERCÍCIO 3</h3>
+    <p id="mensagem">
+        Meu nome é ______, tenho __ anos, moro em ______, estudo no _____ e faço o curso de ____________.
+        </p>
+        <button onclick="Completar()">Completar</button>
+
+    <h3>EXERCÍCIO 4</h3>
+        <p id="texto1">Brasil</p>
+        <button onclick="trocarCor()">Trocar cor</button>
+
+    <h3>EXERCÍCIO 5</h3>
+        <button onclick="NaoClique()">Não clique</button>
+
+    <h3>EXERCÍCIO 6</h3>
+    <p id="escolha">Escolha uma porta e receba seu prêmio</p>
+    <button onclick="porta1()">Porta 1</button>
+    <button onclick="porta2()">Porta 2</button>
+    <button onclick="porta3()">Porta 3</button>
+    
+    <img src="presenteCarro.jpg" alt="" id="imagem1">
+    <img src="presenteCaixa.jpg" alt="" id="imagem2">
+    <img src="presenteTesouro.jpg" alt="" id="imagem3">
+
+    <h3>EXERCÍCIO 7</h3>
+    <img src="ballet1.jpg" alt="" id="imagemBallet">
+    <button onclick="redimensionar()">Redimensionar</button>
+
+    <h3>EXERCÍCIO 8</h3>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <button id="semaforo" onclick="semaforo()">Clique aqui</button>
+
+    <h3>EXERCÍCIO 9</h3>
+    <img src="IMAGENS/filmeComedia.png" alt="" onmouseover = "troca()" onmouseleave = "destroca()" id="filmeComedia">
+    <img src="IMAGENS/filmeAcao.png" alt="" onmouseover = "troca2()" onmouseleave = "destroca2()" id="filmeAcao">
+    <img src="IMAGENS/filmeRomance.png" alt="" onmouseover = "troca3()" onmouseleave = "destroca3()" id="filmeRomance">
+
+    <script src="lista-15.js"></script>
 </body>
 </html>
