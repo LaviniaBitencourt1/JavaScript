@@ -3,8 +3,8 @@ let num = 4.7
 
 //Arredondar números
 console.log(Math.round(num)) // inteiro mais próximo
-console.log(Math.floor(num)) // arrednda para baixo
-console.log(Math.ceil(num)) // arredonda para cima
+console.log(Math.floor(num)) // arrednda para baixo(piso do número)
+console.log(Math.ceil(num)) // arredonda para cima (teto do número)
 
 //Número aleatório
 console.log(Math.random()) //número aleatório entre 0 e 1
