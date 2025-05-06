@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap');
+        </style>
+    
+</head>
+
+<body>
+    <header>
+        <div class="caixaTitulo">
+            <p class="titulo">BEM-VINDO</p>
+            <p class="titulo">Esse é o seu controle financeiro</p>
+        </div>
+    </header>
+
+    <main class="caixaPrincipal">
+        <div class="resumo">
+            <div class="texto">
+                Entradas: R$
+                <span class="texto", class="valor-entradas">0.00</span>
+            </div>
+            <div class="texto">
+                Saídas: R$
+                <span class="texto", class="valor-saidas">0.00</span>
+            </div>
+            <div class="texto">
+                Total: R$
+                <span class="texto", class="valor-total">0.00</span>
+            </div>
+        </div>
+
+        <div class="novo-item">
+            <div class="campo-descricao">
+                <label class="texto", for="descricao">Descrição</label>
+                <input type="text" id="descricao" />
+            </div>
+            <div class="campo-valor">
+                <label class="texto", for="valor">Valor</label>
+                <input type="number" id="valor" />
+            </div>
+            <div class="campo-tipo">
+                <label class="texto", for="tipo">Tipo</label>
+                <select class="texto", id="tipo">
+                    <option class="texto">Entrada</option>
+                    <option class="texto">Saída</option>
+                </select>
+            </div>
+            <button class="texto", id="botao-adicionar">Incluir</button>
+        </div>
+
+        <div class="tabela-itens">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th class="coluna-valor">Valor</th>
+                        <th class="coluna-tipo">Tipo</th>
+                        <th class="coluna-acao"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    
+</html>
