@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva Dia dos Pais</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tagesschrift&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tagesschrift&display=swap');
+</style>
+</head>
+<body>
+    
+    <audio id="somDiaDosPais" src="ImagenseSons/somFinal.mp3"></audio>
+
+
+    <h2 class="titulo">Contagem regressiva para</h2>
+    <h1 class="tituloPrincipal">Dia dos Pais(10/08/2025)</h1>
+    <div class="data" id="contador">
+        <p id="dias"></p>
+        <p id="horas"></p>
+        <p id="minutos"></p>
+        <p id="segundos"></p>
+    </div>
+    <div class="barra-container">
+        <div id="barra-progresso"></div>
+    </div>
+   <script>
+    const dataInicio = new Date(2024, 4, 27);
+
+    const intervalo = setInterval(atualizarContador, 1000);
+
+    function atualizarContador() {
+        const agora = new Date();
+        const dataAlvo = new Date(2025, 7, 10); // janeiro = 0, por isso agosto = 7
+        const diferenca = dataAlvo - agora;
+
+        if (diferenca <= 0) {
+            document.getElementById("contador").innerHTML =
+                "<p>🎉 Feliz Dia dos Pais!🎉</p>";
+            document.getElementById("somDiaDosPais").play();
+            clearInterval(intervalo);
+            return;
+        }
+
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        function ZeronosNumeros(valor) {
+            return valor < 10 ? "0" + valor : valor;
+        }
+
+        document.getElementById("dias").textContent = ZeronosNumeros(dias) + "d";
+        document.getElementById("horas").textContent = ZeronosNumeros(horas) + "h";
+        document.getElementById("minutos").textContent = ZeronosNumeros(minutos) + "m";
+        document.getElementById("segundos").textContent = ZeronosNumeros(segundos) + "s";
+
+        //Barra de progresso
+        const totalTempo = dataAlvo - dataInicio;
+        const progresso = 100 - ((diferenca / totalTempo) * 100);
+        document.getElementById("barra-progresso").style.width = progresso + "%";
+    }
+
+    atualizarContador();
+</script>
+</body>
+</html>
