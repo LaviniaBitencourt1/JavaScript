@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detetive Misterioso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="caixa-fundo">
+    <h2 class="titulo">Caso 100: Suspeito X!🕵️</h2>
+    <p class="textoExplicacao">Você é um Detetive e tem que descobrir a identidade do suspeito (número), chute um número de 1 a 100.</p>
+    <p class="textoExplicacao"><strong>Você tem até 5 tentativas</strong></p>
+
+    <div>
+        <input type="text" id="suspeito" class="input"/>
+        <br><br>
+        <input type="submit" value="Tentar" id="botao" class="botao" />
+        <p id="mensagem"></p>
+    </div>
+</div>
+   <script>
+    const suspeito = document.getElementById("suspeito");
+    const botao = document.getElementById("botao");
+    const mensagem = document.getElementById("mensagem");
+
+    let tentativas = 0;
+    const maxTentativas = 5;
+
+    const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+    botao.addEventListener("click", Palpite);
+
+    function Palpite() {
+        const palpiteUsuario = parseInt(suspeito.value);
+
+        if (isNaN(palpiteUsuario) || palpiteUsuario < 1 || palpiteUsuario > 100) {
+            mensagem.textContent = "Insira um número entre 1 e 100.";
+            return;
+        }
+
+        tentativas++;
+
+        if (palpiteUsuario === numeroAleatorio) {
+            mensagem.textContent = `🎉 Parabéns Detetive! Você acertou a identidade do suspeito: ${numeroAleatorio}!`;
+            suspeito.disabled = true;
+            botao.disabled = true;
+        } else if (tentativas === maxTentativas) {
+            mensagem.textContent = `😢 Que pena! Você atingiu o limite de tentativas. O número correto era ${numeroAleatorio}.`;
+            suspeito.disabled = true;
+            botao.disabled = true;
+        } else {
+            let dica = "";
+            if (palpiteUsuario < numeroAleatorio) {
+                dica = "maior";
+            } else {
+                dica = "menor";
+            }
+            mensagem.textContent = `Você já usou ${tentativas} tentativa(s). O número é ${dica}, tente novamente!`;
+        }
+
+        suspeito.value = "";
+        suspeito.focus();
+    }
+</script>
+
+</body>
+</html>
