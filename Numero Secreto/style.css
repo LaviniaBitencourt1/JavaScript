@@ -21,7 +21,7 @@ body {
 }
 #mensagem {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: #f8f8f8;
     font-family: 'Oswald';
     margin-bottom: 20px;
@@ -43,7 +43,7 @@ body {
     text-align: center;
     border-radius: 20px;
 }
-.botao{
+.botaoTentar{
     background-color: rgb(42, 34, 29, 0.8);
     color: #f8f8f8;
     padding: 10px 15px;
@@ -51,6 +51,15 @@ body {
     font-family: 'Montserrat';
     font-size: 20px;
     width: 90px;
+}
+.botaoReiniciar{
+    background-color: rgb(42, 34, 29, 0.8);
+    color: #f8f8f8;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    width: 103px;
 }
 .input {
     background-color: rgb(119, 97, 81, 0.8);

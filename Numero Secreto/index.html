@@ -9,27 +9,30 @@
 <body>
     <div class="caixa-fundo">
     <h2 class="titulo">Caso 100: Suspeito X!🕵️</h2>
-    <p class="textoExplicacao">Você é um Detetive e tem que descobrir a identidade do suspeito (número), chute um número de 1 a 100.</p>
+    <p class="textoExplicacao">Você é um Detetive e tem que descobrir a idade do suspeito, chute um número de 1 a 100.</p>
     <p class="textoExplicacao"><strong>Você tem até 5 tentativas</strong></p>
 
     <div>
         <input type="text" id="suspeito" class="input"/>
         <br><br>
-        <input type="submit" value="Tentar" id="botao" class="botao" />
+        <input type="submit" value="Tentar" id="botao" class="botaoTentar" />
+        <input type="button" value="Reiniciar" id="reiniciar" class="botaoReiniciar" style="margin-left: 10px;" />
         <p id="mensagem"></p>
     </div>
 </div>
+
    <script>
     const suspeito = document.getElementById("suspeito");
     const botao = document.getElementById("botao");
+    const reiniciar = document.getElementById("reiniciar");
     const mensagem = document.getElementById("mensagem");
 
     let tentativas = 0;
     const maxTentativas = 5;
-
-    const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+    let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
 
     botao.addEventListener("click", Palpite);
+    reiniciar.addEventListener("click", ReiniciarJogo);
 
     function Palpite() {
         const palpiteUsuario = parseInt(suspeito.value);
@@ -42,27 +45,33 @@
         tentativas++;
 
         if (palpiteUsuario === numeroAleatorio) {
-            mensagem.textContent = `🎉 Parabéns Detetive! Você acertou a identidade do suspeito: ${numeroAleatorio}!`;
+            mensagem.textContent = `🎉 Parabéns Detetive! Você acertou a idade do suspeito: ${numeroAleatorio} anos!`;
             suspeito.disabled = true;
             botao.disabled = true;
         } else if (tentativas === maxTentativas) {
-            mensagem.textContent = `😢 Que pena! Você atingiu o limite de tentativas. O número correto era ${numeroAleatorio}.`;
+            mensagem.textContent = `😢 Que pena! Você atingiu o limite de tentativas. A idade certa era ${numeroAleatorio} anos.`;
             suspeito.disabled = true;
             botao.disabled = true;
         } else {
-            let dica = "";
-            if (palpiteUsuario < numeroAleatorio) {
-                dica = "maior";
-            } else {
-                dica = "menor";
-            }
-            mensagem.textContent = `Você já usou ${tentativas} tentativa(s). O número é ${dica}, tente novamente!`;
+            let dica = palpiteUsuario < numeroAleatorio ? "mais velho" : "mais novo";
+            mensagem.textContent = `Você já usou ${tentativas} tentativa(s). A idade é ${dica} anos, tente novamente!`;
         }
 
         suspeito.value = "";
         suspeito.focus();
     }
+
+    function ReiniciarJogo() {
+        tentativas = 0;
+        numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        mensagem.textContent = "";
+        suspeito.value = "";
+        suspeito.disabled = false;
+        botao.disabled = false;
+        suspeito.focus();
+    }
 </script>
+
 
 </body>
 </html>
