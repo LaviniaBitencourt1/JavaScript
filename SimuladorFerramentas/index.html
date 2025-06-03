@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tagesschrift&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tagesschrift&display=swap');
+</style>
+</head>
+<body>
+    <h2 class="titulo">Loja de Ferramentas🛠️</h2>
+    <div class="caixa-fundo"> 
+    <label class="texto">Produto:
+        <select id="produto" class="input">
+            <option value="">Selecione um produto</option>
+            <option value="Cimento">Cimento🏗️ </option>
+            <option value="Areia">Capacete de segurança🪖</option>
+            <option value="Brita">Ferramentas🛠️</option>
+            <option value="Bloco de concreto">Bloco de concreto🧱</option>
+            <option value="Vergalhão">Parafuso/porca🔩</option>
+            <option value="Madeira">Madeira🪵</option>
+            <option value="Tubulações">Broca / furadeira🧰</option>
+            <option value="Fios e cabos elétricos">Fios e cabos elétricos🔌</option>
+            <option value="Telhas">Telhas🏠</option>
+            <option value="Massa corrida">Martelo🔨</option>
+        </select>
+    </label>
+    <br><br>
+    <label class="texto" >Valor (R$)
+        <input class="input" type="number" id="valor" step="0.01">
+    </label>
+    <br><br>
+    <label class="texto">Quantidade:
+        <input class="input" type="number" id="quantidade">
+    </label>
+    <br><br>
+    <label class="texto">Valor Pago (R$)
+        <input class="input" type="number" id="valorPago" step="0.01">
+    </label>
+    <br><br>
+    <button class="botao" onclick="adicionarItem()">Adicionar produtos à compra</button>
+    <button  class="botao" onclick="ReiniciarCompra()">Reiniciar Compra</button>
+
+    <ul id="listarItens"></ul>
+
+    <h3 class="textoFinal">Total: R$ <span id="total">0.00</span></h3>
+    <h3 class="textoFinal">Troco: R$ <span id="troco">0.00</span></h3>
+    </div>
+    <script>
+        let total = 0
+        function adicionarItem(){
+            const produto = document.getElementById("produto").value
+            const valor = parseFloat(document.getElementById("valor").value)
+            const quantidade = parseInt(document.getElementById("quantidade").value)
+             const valorPago = parseFloat(document.getElementById("valorPago").value)
+
+            if(!produto || isNaN(valor) || isNaN(quantidade)){
+                alert("Preencha todos os campos corretamente")
+            }
+            //calcula o total
+            const subtotal = valor * quantidade
+            total += subtotal
+            //calcula o troco
+            const troco = valorPago - total 
+            //lista os itens da compra
+            const lista = document.getElementById("listarItens")
+            const item = document.createElement("li")
+            item.textContent = `${produto} - R$${valor.toFixed(2)} x ${quantidade} = R$${subtotal.toFixed(2)}`
+            lista.appendChild(item)
+
+            document.getElementById("total").textContent = total.toFixed(2)
+              document.getElementById("troco").textContent = troco.toFixed(2)
+
+            if(valorPago >= 200){
+                alert("Cliente VIP")
+            }
+            //Limpar campos
+            document.getElementById("produto").value = ""
+            document.getElementById("valor").value = ""
+            document.getElementById("quantidade").value = ""
+            document.getElementById("valorPago").value = ""
+        }
+        function ReiniciarCompra(){
+            document.getElementById("listarItens").innerHTML = ""
+            document.getElementById("total").textContent = "0.00"
+            document.getElementById("troco").textContent = "0.00"
+            total =0
+        }
+    </script>
+</body>
+</html>
