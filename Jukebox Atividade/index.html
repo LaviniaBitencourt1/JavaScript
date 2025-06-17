@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    body{
+    background-color: #43425d;
+    opacity: 70%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    align-items: center;
+
+}
+.titulo{
+    font-size: 50px;
+    color: aliceblue;
+    align-items: center;
+    margin-top: 0%;
+    text-align: center;
+    font-family: 'Oswald';
+}
+.texto{
+    text-align: center;
+    font-size: 20px;
+    color: #f8f8f8;
+    font-family: 'Montserrat';
+    margin-bottom: 15px;
+}
+.botao{
+    background-color: rgba(67, 81, 126, 0.8);
+    color: #f8f8f8;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    width: 90px;
+}
+.botaoParar{
+    background-color: rgba(31, 38, 61, 0.8);
+    color: #f8f8f8;
+    padding: 15px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    font-size: 25px;
+    width: 90px;
+}
+</style>
+
+<body style="text-align: center;">
+    <h1 class="titulo">Jukebox Disney</h1>
+    <p class="texto">Selecione como está se sentindo e ouça uma música da Disney</p>
+ <div>
+    <button class="botao" onclick="tocar('feliz')">Feliz</button>
+    <button class="botao" onclick="tocar('tristeza')">Tristeza</button>
+    <button class="botao" onclick="tocar('aventura')">Aventura</button>
+    <button class="botao" onclick="tocar('amor')">Amor</button>
+    <button class="botao" onclick="tocar('misterio')">Mistério</button>
+    <button class="botao" onclick="tocar('calma')">Calma</button>
+    <button class="botao" onclick="tocar('animacao')">Animação</button>
+    <button class="botao" onclick="tocar('suspense')">Suspense</button>
+ </div>
+    <br><br>
+    <button class="botaoParar" onclick="parar()">Parar</button>
+
+    <div id="imagem">
+        <img src="" alt="" id="foto" width="300", style="display: none;">
+    </div>
+
+    <audio src="" id="audio" controls style="margin-top: 20px; display: none;"></audio>
+
+    <script>
+        function tocar(tipo){
+            const audio = document.getElementById("audio")
+            const foto = document.getElementById("foto")
+
+            let musica = ""
+            let imagem = ""
+            let cor = ""
+
+
+            if(tipo == "feliz"){
+                musica = "https://r1---sn-xhcg5uxa-bg06.googlevideo.com/videoplayback?expire=1750188296&ei=qGxRaOzAKIKB9fgP0q-auQ0&ip=176.6.134.226&id=o-AJpdbxoFjFZE9nABze4QLPmjR3WKfRXF0fMRhHDlXwpG&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AY1jyLMaiP_POXD2f-057dHGI0CIURIAFmLdGo62SnL3o-rCBdPhJE0IlMCW34oADl7Zdmoq2Sx4Docn&spc=l3OVKSJienpOgqTdN4nxVWP7M-8a97ugnHuulRs6Jm87cLRS8eN5d-0&vprv=1&svpuc=1&xtags=heaudio%3Dtrue&mime=video%2Fmp4&ns=YxlBfQh_oH9tqjY2x-8t7qsQ&rqh=1&cnr=14&ratebypass=yes&dur=239.490&lmt=1731994999929140&fexp=51331020&c=MWEB&sefc=1&txp=1538434&n=tUzapF58eP8Kyw&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cxtags%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRAIgM9XI-OX9wDaLOoaz5jGvNHpwTph9M05t4bQjZLCWofoCIGqC3LsqYdy-XYXrP7quH3KqnuQxA0-dOXru-X2rZx89&pot=MnSqqQOnMYiKw6qVVXjMPCj9eCTrU6iT26GCmObkgyvajH2cK3LPVg-onrHgwniL35Zhs6rTqW1M8nFnWJz23xXtLqGPv5rJOYzo1U2wlzHw8qF5JV9KYJ1mpN91F0rZkn3A_HJwxcri-04MAOdKARm5B4k-UA==&cms_redirect=yes&met=1750166697,&mh=xD&mip=200.212.26.114&mm=31&mn=sn-xhcg5uxa-bg06&ms=au&mt=1750166231&mv=m&mvi=1&pl=23&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgO-097FIGAm-4h4j1jKUDDfoZxlBkWoU-RRGLSUh7E_ACIQCKGS1Leoo4k6t8aNVwOJ5iJR3CC5JtOz19rr7dtErvsA%3D%3D"
+                imagem = src="img/feliz.png"
+                cor = "#ffe066"
+
+            }
+             if(tipo == "tristeza"){
+                musica = "https://r3---sn-bg0e6nlz.googlevideo.com/videoplayback?expire=1750188496&ei=cG1RaMOOMMP56dsPuZehkAQ&ip=176.1.144.238&id=o-ACZlU7Fu4GoDJOAs3GB5noZa1nVa75aitG2MQAGWdAFW&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&pcm2=no&bui=AY1jyLMDWVNcYR3-p-_B0zfCLWGmLHiPVuxJgwSvWApeoUViO-5OQpj7SLQ7Tmcn3nEl15kNpJC6YtlP&spc=l3OVKaYhk82oMrHye4V6syJHj0pa21n0-tUFNg4xV92sRLJM2GhROog&vprv=1&svpuc=1&xtags=heaudio%3Dtrue&mime=video%2Fmp4&ns=pHxsrNfed4k__zgHRbSJn14Q&rqh=1&cnr=14&ratebypass=yes&dur=107.461&lmt=1658624180544582&fexp=24350590,24350737,24350827,24350961,24351173,24351316,24351318,24351495,24351528,24351759,24351907,24352022,24352102,24352156,24352188,24352220,24352236,51331020&c=MWEB&sefc=1&txp=5318224&n=YZOhULestQfkBQ&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cxtags%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRgIhAPDciKX8KO6av4cYvd-hYdWeehWTYpJ7MSi7RUx5OawDAiEA3YPXdj9htTIBvn3-v_wEGBasdsTvQ2rO3GzKz-QLYnM%3D&pot=MnQKrYpgIdYNjgqRyPq5cEzbyR5WTGwy38JCbi5yky36fSw9z6bUXSYdmoaiNKHRiCI3ut88vQpPbszUrnLvTjBxLz_6I6UfqAr0pPTwYmukE6lWEjRBtbO5XqGmh7jD3ebzp-nDQJCCXasgAGeEpyBJeJV-Dw==&redirect_counter=1&cm2rm=sn-xhcg5uxa-bg067s&rrc=80&req_id=9e83b3427172a3ee&cms_redirect=yes&cmsv=e&met=1750166898,&mh=W8&mip=200.212.26.114&mm=29&mn=sn-bg0e6nlz&ms=rdu&mt=1750166709&mv=m&mvi=3&pl=23&rms=rdu,au&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgLe3GsKm1tInLgvsIFWnoHjOTLvCkP0ut6IVXX-R7aCkCIQCtcXi9AkQELzblVqH8iu3FlNU1Pylse34xodTaSgGC8g%3D%3D"
+                imagem = src="img/tristeza.png"
+                cor = "#559fdf"
+            }
+             if(tipo == "aventura"){
+                musica = "https://r3---sn-bg0e6n7r.googlevideo.com/videoplayback?expire=1750189428&ei=FHFRaLn4KZiGzPsPs8mTwQo&ip=176.1.139.243&id=o-ACQuGjw3NP17Q4AkqTKm18Lp5_XqxjSjjcRu-sdUQdsi&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AY1jyLPrV1_zPTLLE2dFD_LjR-s1macyie6eJvlGVf3iPKMznAqicFd6z29nvbUYAJC9gtEPW-A4AQr5&spc=l3OVKV_lNRHA6oRUq3T-gXeZAjP1Jnqi99gtWaA81m1lVQYli9M62Uc&vprv=1&svpuc=1&mime=video%2Fmp4&ns=Sq3S450XGglqu-X_Z96b62MQ&rqh=1&cnr=14&ratebypass=yes&dur=116.796&lmt=1739812985755899&fexp=24350590,24350737,24350827,24350961,24351173,24351316,24351318,24351495,24351528,24351759,24351907,24352022,24352102,24352188,24352220,24352236,51331020,51476175&c=MWEB&sefc=1&txp=5438534&n=Ht8o-OQrVzW9Mg&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRgIhANTdxJmSBOQnQgusbG2I_ZB9nBiAZlURdRd_txLD6Q5yAiEAh8hVnzo1G3BRvCzPMwxOAq1LrlT_Jhik4PNUi6tjUF4%3D&pot=MpABgMMfa-N9TqGA_xQQiO09oxpiBxR3NRvjMRzHTBG8L97ReeNk1izI_qLCa9P49wD_MmyTNZoIb3QSjM-RHsk0oEFx7cdCAqHFhesuSuffHKfCVwZB2FZ9hG3kfg8AWIffrnNpL5z69K9h8MrPfC-TRoduBcE7v1ElTURWsfBbpg6KUcuAdvnwsm9nnmb4d0CZ&redirect_counter=1&cm2rm=sn-xhcg5uxa-bg0676&rrc=80&req_id=90224b6a8421a3ee&cms_redirect=yes&cmsv=e&met=1750167830,&mh=We&mip=200.212.26.114&mm=29&mn=sn-bg0e6n7r&ms=rdu&mt=1750167669&mv=m&mvi=3&pl=23&rms=rdu,au&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRAIgIiMain3m4F5kc7u4Qp_kWbsUCwPGbhnOA6JQY-BMfrUCIHi4_tR2UY1D0hKb13UA-_evTHFHevuQBomOMo3N3ik3"
+                imagem = src="img/aventura.png"
+                cor = "#925a06"
+            }
+            if(tipo == "amor"){
+                musica = "https://r3---sn-bg0e6ner.googlevideo.com/videoplayback?expire=1750188838&ei=xm5RaJi2LJvp6dsPh6ur2A4&ip=176.1.142.133&id=o-ANkbntbhoSlTvpAdEdq2wtknwSw7yz2RZy2zcIEDIVi2&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AY1jyLPJmcL0l2yPtWZCSNjxAwsowqIP9WJNEVfRd4FfpEEb-qhtH-VFloIOvct-nbQtWKmOp8J1B_Jv&spc=l3OVKa13rIXcM5SDDw95yPYQPm-i4OUdNYTVRM4lAlYr1_swD-qPOFs&vprv=1&svpuc=1&xtags=heaudio%3Dtrue&mime=video%2Fmp4&ns=9R_RcmNKi7j5XC97MSY9_g4Q&rqh=1&cnr=14&ratebypass=yes&dur=177.725&lmt=1744183468235757&fexp=24350590,24350737,24350827,24350961,24351173,24351316,24351318,24351495,24351528,24351759,24351907,24352022,24352102,24352188,24352220,24352236,51331020&c=MWEB&sefc=1&txp=1308224&n=9qIxNJmuV_2F8w&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cxtags%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRgIhAM04c1jvdGnyUUvispEWQQ0iQDsQI8dXRXYEXd2PKfLaAiEArYLHk4WUJGPteSY0Z96TXhNo94wx0nK1xW2qyPTqzEQ%3D&pot=MnSjsu1CplusJ6OOyNacxa59VhK3i2NwCY69iF6rZXBqhUXfHwfyfJCNSW88kkIGRGcikIpGmTMnyK1ANdYPtHGldGmbkmGzwcXvKzxRJMyqDvjf9_xKQCXK75CClbpr1Thg6qg4CqfjBkwZMzmQfTvxv4A9eA==&redirect_counter=1&cm2rm=sn-xhcg5uxa-bg0676&rrc=80&req_id=f1f2eca6974ea3ee&cms_redirect=yes&cmsv=e&met=1750167240,&mh=pC&mip=200.212.26.114&mm=29&mn=sn-bg0e6ner&ms=rdu&mt=1750166947&mv=m&mvi=3&pl=23&rms=rdu,au&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgRP_ZYweALgt1le9u2t7oamJSk1ifVLhr85LiVYxTzBACIQDeIzVO9BEenlpk0lDW_TqtvfiWrcHmlSXzmD7GAZeX7w%3D%3D"
+                imagem = src="img/amor.png"
+                cor = "#e03527"
+            }
+            if(tipo == "misterio"){
+                musica = "https://r1---sn-bg0s7nlk.googlevideo.com/videoplayback?expire=1750189593&ei=uXFRaLS2G8WJ9fgPjpfysQ0&ip=176.6.128.171&id=o-AKX_bkVTFKaR7_NhX9Weai_qBk310zW1fJdWBN7yBi04&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AY1jyLMC0C42H7IduFYoPrS8dwh9o2fgtTm98j8JE__OZlchdH8voyOxjIlSZW8-eEirU8awgNEE8mOg&spc=l3OVKUY9o0A1GuLHgX7S1e-tmftcDw6QDtgx_tdPQPsUQnDCS-rqdK4&vprv=1&svpuc=1&xtags=heaudio%3Dtrue&mime=video%2Fmp4&ns=aTeNiJkVg-QizuncptO1psQQ&rqh=1&cnr=14&ratebypass=yes&dur=222.354&lmt=1738001774871808&fexp=24350590,24350737,24350827,24350961,24351173,24351316,24351318,24351495,24351528,24351759,24351907,24352022,24352038,24352102,24352188,24352220,24352236,51331020&c=MWEB&sefc=1&txp=5538534&n=PZgCa0RCx-Dckw&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cxtags%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRQIgfKDNHdRBaOmqq4p7ffUtrl8fDOicUg9Z6EZc1K1PuE4CIQClVEN4QUya31aPSAXfwU7a9wwWOA9SylSVp5_pTEH74A%3D%3D&pot=MnRpvWiSVzFGCmmBz-jisoN-jkBuKC2w1ZgR5SYFCyuSSAjagoOW8lQxE-yojdZRqXYGHMYLakDBh-1FGLtbVihDHMeGIY-b-g0v488S8S7x6Yc0vnoMRpXu5QCjbZqQs8RdvFdNZ_Bw85GbJ5Ahuz4fOZg6dQ==&cm2rm=sn-xhcg5uxa-8j2z7s&rrc=80,104&req_id=399bd42a4b3da3ee&rms=rdu,au&redirect_counter=2&rm=sn-bg0ee67e&cms_redirect=yes&cmsv=e&ipbypass=yes&met=1750167994,&mh=QN&mip=201.63.217.82&mm=29&mn=sn-bg0s7nlk&ms=rdu&mt=1750167669&mv=m&mvi=1&pl=16&lsparams=ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIhAImElXRkwAOluTVVMUplUoEJMECh-3Wq3G7uHV6dV2w6AiBK1XTyD9f0CmuLgTmzE1rXWUlCkdTwyF6dplKZKnzMNg%3D%3D"
+                imagem = src="img/misterio.png"
+                cor = "#7b4905"
+            }
+            if(tipo == "calma"){
+                musica = "https://r5---sn-bg0s7n7r.googlevideo.com/videoplayback?expire=1750189161&ei=CXBRaL7bJ-m7zPsPn7HC-Qo&ip=176.1.148.187&id=o-APFhex28PX0IpB1SYS-1pxVEuOrvQl3_2OMeOkPfh3Fc&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AY1jyLPwI3A1-MYYVRMAYValrf5FiJ20-_C2vo0MAo1H3jwQ4U4WxaJ1TFyhcVH2TJicyKT8N788Rs2y&spc=l3OVKek5QckNdPnx6y-R2MPq0jVG3KaptM3TEsGmzMSU0gVRM1k1Ke8&vprv=1&svpuc=1&mime=video%2Fmp4&ns=lafpqu0KKNEcPa1xrK0zTv0Q&rqh=1&gir=yes&clen=4509966&ratebypass=yes&dur=94.226&lmt=1739852376229822&fexp=24350590,24350737,24350827,24350961,24351173,24351316,24351318,24351495,24351528,24351759,24351782,24351907,24352022,24352102,24352188,24352220,24352236,51331020&c=MWEB&sefc=1&txp=5438534&n=o-w4Lf7Rlci2zg&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRQIhAMPaH16QOVGvihMj4dg5xysR9M9C5bF5FQsYLskogxYaAiAzsiG3bYln3ipH2koZ48kqOf3y9RFjlxYdzm1ml8u72w%3D%3D&pot=MnRA6ZTo-BOA0EDV0Ski6qxV7KaTn-B9PKtiJlrj5V_EaqSo1vmn5HbpmwjfPYPTD44BqNGRd50JdDp_Qv84UB_Hj8z4xhsRpPJ0TojTcxlIZgikpNbf93j_7FmjjIslriXAk8DN8ALz-R5sCcaNLa5ezfR1ww==&redirect_counter=1&rm=sn-xhcg5uxa-bg0676&rrc=79&req_id=9062f492d81ea3ee&cms_redirect=yes&cmsv=e&met=1750167563,&mh=X2&mip=200.212.26.114&mm=29&mn=sn-bg0s7n7r&ms=rdu&mt=1750167191&mv=m&mvi=5&pl=23&rms=rdu,au&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgUT7R0TMZb1Oxc3ovez-N6bwiJnEOu8UmaiN8-m50RX0CIQDMEQ6XAnVKOO7SWY008MkeX5SK_yuagGKVgAeGGLgr4Q%3D%3D"
+                imagem = src="img/calma.png"
+                cor = "#fe9d36"
+            }
+            if(tipo == "animacao"){
+                musica = "https://r4---sn-bg0e6ned.googlevideo.com/videoplayback?expire=1750189332&ei=tHBRaLqQE4aAzPsP0LC4wQU&ip=176.1.144.238&id=o-AAtj83W1pjrtu_YE2y-j1zrP6VsNWRgv54rQW8SKMHZ4&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AY1jyLMstUTcybjnuwWtazViMEj5LVAkGe-i55HmJf7lNiWo6RVdLSnw8a4eAgqsPsFm8fYLkGGCHAsg&spc=l3OVKVLixZ_2MqFEwABFPET_PGHVNLzHLBb2FpPqpaeg8eCpvWxv3zA&vprv=1&svpuc=1&mime=video%2Fmp4&ns=NGSV5OYOrPtXexXBXYNE7NAQ&rqh=1&cnr=14&ratebypass=yes&dur=210.094&lmt=1741873262026597&fexp=24350590,24350737,24350827,24350961,24351173,24351316,24351318,24351495,24351528,24351759,24351907,24352022,24352102,24352188,24352220,24352236,51331020,51466643&c=MWEB&sefc=1&txp=5538534&n=vFEHdU26t1D7iA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRAIgGZTHHlzRsMrwoyJD0aXvQEJWM03Xy-BnjEjPylkHKakCIAnCiAiXQdgZhMqkTjG78c1gcKPG6aCBx99IZ85v4FA6&pot=MnR0wJb1zlkw63T81jaAVyKlWfWX-FGQpCyLBlwSzp254RoyCDFJSus75gxLC_7lyUH3j7YUkcRLT3v5_NpPzdVCMh1IacxA89DYHUCrekn7fUCRw7addQcE4MtNsREenzR127PeD5z9wJxVZ2mzUCBiFDA02g==&rm=sn-xhcg5uxa-bg0r7l,sn-bg0e767s&rrc=79,104&req_id=a762fded5a29a3ee&rms=rdu,au&redirect_counter=2&cms_redirect=yes&cmsv=e&ipbypass=yes&met=1750167734,&mh=0R&mip=201.63.217.82&mm=29&mn=sn-bg0e6ned&ms=rdu&mt=1750167431&mv=m&mvi=4&pl=16&lsparams=ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRAIgA2i_8OEt6Y9519iJNTEW2bd85pvu1zNjUx4I2hiW0SECIAOG4GrHO8sqZ9ESFUjvAlrkeJRD5B6oHZwL9m4mcCp4"
+                imagem = src="img/animacao.png"
+                cor = "#d53b79"
+            }
+            if(tipo == "suspense"){
+                musica = "https://r2---sn-bg0s7nl6.googlevideo.com/videoplayback?expire=1750189020&ei=fG9RaJ7gOqGQsvQPrJiHkAg&ip=176.6.142.53&id=o-ANOccovbeN3qpBvHdjYKXjCFeFYdQFcQLcYcswcJsgnI&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AY1jyLOEurxveFfRocsjfNWxsQPrcWLj-fKliaM5kXMlbZLBz3IruQcTIhAsS374MmnsIjTSWO6Chr7E&spc=l3OVKd0rDHoea2t6N_ipvv-ouTXAzFAc99SGks-F9Ob-ZYBzNuHTfY4&vprv=1&svpuc=1&xtags=heaudio%3Dtrue&mime=video%2Fmp4&ns=73qUApj-dDTVGy2IKpQWx2QQ&rqh=1&cnr=14&ratebypass=yes&dur=222.261&lmt=1742861394462425&fexp=24350590,24350737,24350827,24350961,24351173,24351316,24351318,24351495,24351528,24351596,24351759,24351907,24352022,24352038,24352102,24352188,24352220,24352236,51331020,51466697&c=MWEB&sefc=1&txp=5438534&n=TIsYYoobKbzXZw&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cxtags%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRAIgGUTd0bfIN9G3iOGq9GKfj8qiuF6tL0uMS8bz0xBgAV0CIFqBTWllMlaKREAoxZhv6XiLUF0iWj3tv4YEDbigBhXd&pot=MnRnjLRBrYHb32ewlmXOI8YR-h18I9-zy-hNKhSJRYqRX1NumHCYxnjR9RcgJoRz2qvmLNhJazQUUDhCWH9xd0iORAfvBCoIcvuFnGj1Lf7b7rBMYNsv29D5QHJ9rDV7ibbjgTkgtGO0C9_ZGDjZsTJE5ZitKw==&cm2rm=sn-xhcg5uxa-bg0r7s&rrc=80,104&req_id=b3a1e8ddfd93a3ee&rms=rdu,au&redirect_counter=2&rm=sn-bg0ees7l&cms_redirect=yes&cmsv=e&ipbypass=yes&met=1750167422,&mh=td&mip=201.63.217.82&mm=29&mn=sn-bg0s7nl6&ms=rdu&mt=1750167191&mv=m&mvi=2&pl=16&lsparams=ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRQIgZX28Znk2XAei5jo0wB5qttATJo7w6rkkjU6ICIIBHzQCIQCS3UOiTGXg8EyqUGBeoU-Y4XKTJmtKNYt3JYg393muUA%3D%3D"
+                imagem = src="img/suspense.png"
+                cor = "#8d909b"
+            }
+            document.body.style.backgroundColor = cor
+            foto.src = imagem
+            foto.style.display = "block"
+
+            audio.src = musica
+            audio.play()
+            audio.style.display = "block"
+        }
+        function parar(){
+            const audio = document.getElementById("audio")
+            audio.pause()
+            audio.currentTime = 0
+            audio.style.display = "none"
+
+            const foto = document.getElementById("foto")
+            foto.style.display = "none"
+
+            document.body.style.backgroundColor = "#43425d"
+        }
+
+
+    </script>
+</body>
+</html>
